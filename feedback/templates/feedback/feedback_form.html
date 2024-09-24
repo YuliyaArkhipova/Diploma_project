@@ -1,0 +1,29 @@
+{% extends 'services/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="col-12">Напишите нам</h1>
+        <p class="card-text">Заполните форму и администратор клиники свяжется с Вами.</p>
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success center" style="background-color: #70964b;">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+
+
+

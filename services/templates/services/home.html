@@ -1,0 +1,65 @@
+{% extends 'services/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+<div class="container">
+    <section class="hero-wrap js-fullheight" style="background-image: url(/static/images/home.jpg); "
+             data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end"
+                 data-scrollax-parent="true" style="height: 720px;">
+                <div class="col">
+                    <div class="mt-5">
+                        <h1 class="mb-1">HealthChek</h1>
+                        <p class="mb-2">Ваш помощник на пути к здоровой жизни.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-body">
+                <p class="card-text" > В клинике HealthChek мы стремимся быть вашим помощником на пути к долгой, здоровой
+                    и качественной жизни.</p>
+                <p class="card-text"> Используя последние технологии в области медицины, учитывая все нюансы жизни
+                    каждого пациента, мы
+                    предлагаем решения с доказанной эффективностью, которые позволяют вам сохранить и улучшить
+                    здоровье. </p>
+                <p class="card-text"> Начните заботиться о своем здоровье сегодня.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="profile-card">
+                <h2 class="text-center" style="color:#294b70;">Услуги медицинского центра</h2>
+                <ul class="list-group text-center">
+                    <a href="/category/detail/3/" class="list-group-item list-group-item-action">Магнитно-резонансная томография (МРТ)</a>
+                    <a href="/category/detail/5/" class="list-group-item list-group-item-action">Компьютерная томография (КТ)</a>
+                    <a href="/category/detail/2/" class="list-group-item list-group-item-action">Ультразвуковые исследования (УЗИ)</a>
+                    <a href="/category/detail/1/" class="list-group-item list-group-item-action">Рентген-исследования</a>
+                    <a href="/category/detail/4/" class="list-group-item list-group-item-action">Лабораторные исследования</a>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="feedback-form">
+                <h2 class="text-center" style="color:#70964b">Напишите нам</h2>
+                <p class="card-text text-center">Заполните форму и администратор клиники свяжется с Вами.</p>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-success center" style="background-color: #70964b;">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load static %}
+
+
+<div class="py-0">
+    <div class="container">
+        <div class="row d-flex align-items-start align-items-center px-3 px-md-0">
+            <div class="col-md-4 d-flex mb-2 mb-md-0">
+                <a href="{% url 'services:home' %}">
+                    <img src="{% static 'images/favicon.ico' %}" width="120" height="120"/>
+                </a>
+            </div>
+            <div class="col-md-4 d-flex topper mb-0 align-items-center">
+            </div>
+            <div class="col-md-4 d-flex topper mb-md-0  align-items-center justify-content-between">
+                <div class="btn-group mb-2">
+                    <button class="btn btn-light center" style="background-color: #70964b;">
+                        <a style="color: white;" href="{% url 'feedback:feedback' %}" >Заказать обратный звонок</a></button>
+                    <button class="btn btn-light center" style="background-color: #70964b;">
+                        <a style="color: white;" href="{% url 'record:record_create' %}"> Онлайн запись</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg ftco-navbar-light" style="background-color: #294b70;" id="ftco-navbar">
+        <div class="container d-flex ">
+            <div class="navbar-collapse collapse" id="ftco-nav" style="">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item"><a href="{% url 'services:home' %}" class="nav-link"
+                                            style="color:#FFFFFF">Главная</a></li>
+                    <li class="nav-item"><a href="{% url 'services:company' %}" class="nav-link" style="color:#FFFFFF">О
+                        компании</a></li>
+                    <li class="nav-item"><a href="{% url 'services:category_list' %}" class="nav-link"
+                                            style="color:#FFFFFF">Услуги</a></li>
+                    <li class="nav-item"><a href="{% url 'services:contact' %}" class="nav-link" style="color:#FFFFFF">Контакты</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a href="{% url 'record:account' %}" class="nav-link"
+                                            style="color:#FFFFFF">Личный
+                        кабинет</a></li>
+                    <li class="nav-item"><a href="{% url 'users:profile' %}" class="nav-link"
+                                            style="color:#FFFFFF">Профиль </a></li>
+                    <li class="nav-item"><a href="{% url 'users:logout' %}" class="nav-link"
+                                            style="color:#FFFFFF">Выход</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item"><a href="{% url 'users:login' %}" class="nav-link"
+                                            style="color:#FFFFFF">Войти</a>
+                    </li>
+                    <li class="nav-item"><a href="{% url 'users:register' %}" class="nav-link" style="color:#FFFFFF">Регистрация</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+

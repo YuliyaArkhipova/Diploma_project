@@ -1,0 +1,87 @@
+{% extends 'services/base.html' %}
+{% block content %}
+
+<style>
+
+    .profile-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .profile-card h2 {
+        margin-bottom: 20px;
+    }
+    .profile-card .profile-info {
+        margin-bottom: 15px;
+    }
+    .profile-card .profile-info strong {
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="profile-card background-color: #fff; ">
+                <h2 class="text-center">Личный кабинет пациента</h2>
+                <div class="profile-info">
+                    <strong>Имя пользователя: {{ user.patient_name }}</strong>
+                </div>
+                <div class="profile-info">
+                    <strong>Email: {{ user.email }} </strong>
+                </div>
+                <div class="profile-info">
+                    <strong>Телефон: {{ user.phone }} </strong>
+                </div>
+                <div class="text-left mt-4">
+                    <a href="{% url 'users:profile' %}" class="btn btn-warning" style="background-color: #70964b;">Редактировать профиль</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-10">
+            <div class="profile-card">
+                <h2 class="text-center">Мои записи</h2>
+                <ul class="list-group">
+                    {% for record in records %}
+                    <li class="list-group-item">
+                        <strong>{{ record.category }}</strong><br>
+                        {{ record.services }}<br>
+                        Врач: {{ record.doctor}}<br>
+                        Дата: {{ record.date }}<br>
+                        Время: {{ record.time }}<br>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item">Нет доступных записей.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-10">
+            <div class="profile-card">
+                <h2 class="text-center">Мои результаты</h2>
+                <ul class="list-group">
+                    {% for result in results %}
+                    <li class="list-group-item">
+                        <strong>{{ result.title }}</strong><br>
+                        {{ result.record }}<br>
+                        Назначения: {{ result.appointments }}<br>
+                        Файл с результатом исследования: <a href="{{ result.file.url }}" target="_blank"> Скачать файл</a>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item">Нет доступных результатов.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
