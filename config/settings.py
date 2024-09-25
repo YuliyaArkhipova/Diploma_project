@@ -1,15 +1,10 @@
-import os
 from pathlib import Path
-
-from dotenv import load_dotenv
-
-load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = "django-insecure-mzyf#ok0uw#kayc-y)1o%#v8#ybhyokwyi$#rnt4uw$!+f#xe6"
 
-DEBUG = os.getenv("DEBUG", False) == "True"
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -20,7 +15,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_dump_load_utf8",
     "doctor",
     "record",
     "services",
@@ -61,11 +55,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("POSTGRES_DB"),
-        "USER": os.getenv("POSTGRES_USER"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": os.getenv("POSTGRES_HOST"),
-        "PORT": os.getenv("POSTGRES_PORT"),
+        "NAME": "diploma_project",
+        "USER": "postgres",
+        "PASSWORD": "123456",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -98,9 +92,6 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 STATIC_URL = "/static/"
-
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
 
 STATICFILES_DIRS = (BASE_DIR / "static",)
 
